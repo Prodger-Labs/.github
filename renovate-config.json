@@ -1,0 +1,52 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": [
+    "Prodger-Labs org preset. A repo uses it with: { \"extends\": [\"local>Prodger-Labs/.github:renovate-config\"] }.",
+    "Automerge is OFF by default. A repo opts in to patch automerge only if it has real CI and does not deploy on merge.",
+    "Repos that deploy on merge never automerge.",
+    "BEFORE onboarding a repo with an auto-merge workflow: make that workflow skip the Renovate bot (if: github.actor != 'renovate[bot]'), or set draftPR:true in the repo. Otherwise GitHub's native auto-merge merges Renovate PRs whatever this file says.",
+    "Dependabot: each repo's onboarding PR deletes the version-updates entries from .github/dependabot.yml. Dependabot alerts stay on."
+  ],
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests",
+    "schedule:weekly"
+  ],
+  "branchPrefix": "renovate/",
+  "minimumReleaseAge": "3 days",
+  "internalChecksFilter": "strict",
+  "platformAutomerge": false,
+  "automerge": false,
+  "separateMinorPatch": true,
+  "dependencyDashboard": true,
+  "vulnerabilityAlerts": {
+    "automerge": false,
+    "labels": [
+      "security"
+    ]
+  },
+  "packageRules": [
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "groupName": "GitHub Actions"
+    },
+    {
+      "description": "Third-party actions never automerge, even in a repo that opts in.",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchPackageNames": [
+        "!actions/**"
+      ],
+      "automerge": false
+    },
+    {
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}
