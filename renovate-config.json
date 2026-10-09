@@ -18,7 +18,7 @@
   "platformAutomerge": false,
   "automerge": false,
   "separateMinorPatch": true,
-  "dependencyDashboard": true,
+  "dependencyDashboard": false,
   "vulnerabilityAlerts": {
     "automerge": false,
     "labels": [
@@ -41,12 +41,6 @@
         "!actions/**"
       ],
       "automerge": false
-    },
-    {
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "dependencyDashboardApproval": true
     }
   ]
 }
