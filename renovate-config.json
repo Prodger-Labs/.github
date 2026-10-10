@@ -9,6 +9,7 @@
   ],
   "extends": [
     "config:recommended",
+    ":disableDependencyDashboard",
     "helpers:pinGitHubActionDigests",
     "schedule:weekly"
   ],
