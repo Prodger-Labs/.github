@@ -50,6 +50,22 @@
         "@opentelemetry/**"
       ],
       "groupName": "opentelemetry"
+    },
+    {
+      "description": "httpx2 pins httpcore2 to the same version (httpx2==X needs httpcore2==X), so they move in one PR. A lone httpcore2 bump leaves the resolver with an impossible set.",
+      "matchPackageNames": [
+        "httpx2",
+        "httpcore2"
+      ],
+      "groupName": "httpx2"
+    },
+    {
+      "description": "httpx and httpcore move together so a bump never lands against a mismatched sibling pin.",
+      "matchPackageNames": [
+        "httpx",
+        "httpcore"
+      ],
+      "groupName": "httpx"
     }
   ]
 }
