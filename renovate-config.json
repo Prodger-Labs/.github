@@ -42,6 +42,14 @@
         "!actions/**"
       ],
       "automerge": false
+    },
+    {
+      "description": "OpenTelemetry packages move in one PR. opentelemetry-sdk==X pins opentelemetry-api==X and the contrib instrumentation (0.NNbN) releases in lockstep, so separate PRs leave the resolver with an impossible set.",
+      "matchPackageNames": [
+        "opentelemetry-*",
+        "@opentelemetry/**"
+      ],
+      "groupName": "opentelemetry"
     }
   ]
 }
